@@ -5,6 +5,7 @@ class Book{
     Author = [];
     Elements = new Map();
     ElementsName = [];
+    AuthorId = 0;
 
     constructor(id, title, gender, year, copies, description){
         this.title = title;
@@ -47,12 +48,14 @@ class Book{
 }
 
 class Author{
+    id
     Name
     Elements = new Map();
     ElementsName = [];
 
-    constructor(name){
+    constructor(id,name){
         this.Name = name;
+        this.id = id;
     }
 }
 
@@ -65,10 +68,10 @@ addBook(new Book(4,'El necronomicón','Terror',2008,3,'El Necronomicón es descr
 
 
 
-books[0].Author[0] = new Author('Ernest Cline');
-books[1].Author[0] = new Author('Philip K. Dick');
-books[2].Author[0] = new Author('George Orwell');
-books[3].Author[0] = new Author('H.P.Lovecraft');
+books[0].Author[0] = new Author(1, 'Ernest Cline');
+books[1].Author[0] = new Author(1, 'Philip K. Dick');
+books[2].Author[0] = new Author(1, 'George Orwell');
+books[3].Author[0] = new Author(1, 'H.P.Lovecraft');
 for (let a=0;a<books.length;a++){
     let div = document.getElementById('NewAtributes');
     let NewDiv = document.createElement('div');
@@ -513,7 +516,8 @@ function AddSubelement(id){
             if (ElementContent != null)
             NewAuthor.Elements[Array[a]] = ElementContent.value;
         }
-        books[id].Author.push(NewAuthor);
+        books[id].AuthorId = books[id].AuthorId++;
+        books[id].Author.push(books[id].AuthorId,NewAuthor);
         NameInput.value = '';
 
         for (let a=0;a<=books[id].ElementsName.length;a++){

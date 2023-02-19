@@ -6,14 +6,29 @@
     <p>Año: {{book.year}}</p>
     <p>Ejemplares: {{book.copies}}</p>
     <p>Descripción: {{book.description}}</p>
-    if (book.ElementsName != null){
 
-    }
+    {{#book.Elements}}
+    {{#book.ElementsName}}
+    <p>{{.}}: {{value}}</p>
+    {{/book.ElementsName}}
+    {{/book.Elements}}
+    
+    <h6>Autor/es</h6>
+    {{#book.Author}}
+    <p>Nombre: {{Name}}</p>
 
-    <button href="/book/{{book.id}}/delete">Delete book</button>
+    {{#book.Elements}}
+    {{#book.ElementsName}}
+    <p>{{.}}: {{value}}</p>
+    {{/book.ElementsName}}
+    {{/book.Elements}}
+    {{/book.Author}}
 
     <br>
 
-    <a href="/">Volver</a>
+    <button href="/book/{{book.id}}/delete">Borrar libro</button>
+    <button href="/book/{{book.id}}/edit">Editar libro</button>
+    <button href="/">Volver</button>
+    
 </body>
 </html>
