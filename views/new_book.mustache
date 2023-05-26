@@ -63,35 +63,24 @@
 
 
 
-                    <p>Título: {{book.title}}</p>
-                    <p>Género: {{book.genre}}</p>
-                    <p>Año: {{book.year}}</p>
-                    <p>Ejemplares: {{book.copies}}</p>
-                    <p>Descripción: {{book.description}}</p>
+                    <form action="post/new" method="post">
+                        <p>Título: </p>
+                        <input type='text' name='title'/>
+                        <p>Género:</p>
+                        <input type='text' name='genre'/>
+                        <p>Año de publicación:</p>
+                        <input type='text' name='year'/>
+                        <p>Ejemplares:</p>
+                        <input type='text' name='copies'/>
+                        <p>Descripción:</p>
+                        <textarea name='description' rows=5 cols=40></textarea>
+                        <button>Añadir</button>
+                    </form>
 
-                    {{#book.Elements}}
-                    {{#book.ElementsName}}
-                    <p>{{.}}: {{value}}</p>
-                    {{/book.ElementsName}}
-                    {{/book.Elements}}
-                    
-                    <h6>Autor/es</h6>
-                    {{#book.Author}}
-                    <p>Nombre: {{Name}}</p>
 
-                    {{#book.Elements}}
-                    {{#book.ElementsName}}
-                    <p>{{.}}: {{value}}</p>
-                    {{/book.ElementsName}}
-                    {{/book.Elements}}
-                    {{/book.Author}}
 
-                    <br>
 
-                    <button href="/book/{{book.id}}/delete">Borrar libro</button>
-                    <button href="/book/{{book.id}}/edit">Editar libro</button>
-                    <button href="/">Volver</button>
-    
+
 
 
 

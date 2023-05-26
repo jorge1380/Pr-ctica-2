@@ -11,8 +11,8 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
-        <link rel="stylesheet" href="css/FuentesHead.css">
-        <link rel="stylesheet" href="css/FuentesBody.css">
+        <link rel="stylesheet" href="/css/FuentesHead.css">
+        <link rel="stylesheet" href="/css/FuentesBody.css">
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -69,9 +69,8 @@
 
 
 
-                    <h1>Books</h1>
                     {{#books}}
-                    <a href="book/{{id}}">{{title}}</a>
+                        <a href="book/{{id}}">{{title}}</a>
                     <br>
                     {{/books}}
                     
@@ -80,7 +79,7 @@
                     {{/books}}
 
                     <br>
-                    <button href="new_book.html">Añadir Libro</button>
+                    <button href="book/new">Añadir Libro</button>
 
 
 
@@ -109,9 +108,7 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-
-        <script src='/src/app.js'></script>
+        <script src="/js/scripts.js"></script>
 
     </body>
 </html>
