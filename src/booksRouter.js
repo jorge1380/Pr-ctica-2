@@ -16,12 +16,16 @@ router.post('/book/new', (req, res) => {
 
 router.get('/book/:id', (req, res) => {
     let book = bookService.getBook(req.params.id);
-    res.render('show_book', { book });
+    let author = bookService.getAuthorBook(req.params.id)
+    res.render('show_book', { book, author });
+    
 });
     
 router.get('/book/:id/delete', (req, res) => {
-    bookService.deleteBook(req.params.id);
-    res.render('deleted_book');
+    let result = bookService.deleteBook(req.params.id);
+    if (result){
+        res.render('deleted_book');
+    }
 });
     
 export default router;

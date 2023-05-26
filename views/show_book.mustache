@@ -9,10 +9,10 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
-        <link rel="stylesheet" href="/css/FuentesHead.css">
-        <link rel="stylesheet" href="/css/FuentesBody.css">
+        <link rel="stylesheet" href="../css/FuentesHead.css">
+        <link rel="stylesheet" href="../css/FuentesBody.css">
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -29,7 +29,7 @@
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
+                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="../assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">Biblioteca</h1>
                 <!-- Icon Divider-->
@@ -68,29 +68,20 @@
                     <p>Año: {{book.year}}</p>
                     <p>Ejemplares: {{book.copies}}</p>
                     <p>Descripción: {{book.description}}</p>
-
-                    {{#book.Elements}}
-                    {{#book.ElementsName}}
-                    <p>{{.}}: {{value}}</p>
-                    {{/book.ElementsName}}
-                    {{/book.Elements}}
                     
                     <h6>Autor/es</h6>
-                    {{#book.Author}}
+                    {{#author}}
                     <p>Nombre: {{Name}}</p>
-
-                    {{#book.Elements}}
-                    {{#book.ElementsName}}
-                    <p>{{.}}: {{value}}</p>
-                    {{/book.ElementsName}}
-                    {{/book.Elements}}
-                    {{/book.Author}}
+                    {{#ElementsName}}
+                    <p>{{key}}: {{value}}</p>
+                    {{/ElementsName}}
+                    {{/author}}
 
                     <br>
 
-                    <button href="/book/{{book.id}}/delete">Borrar libro</button>
-                    <button href="/book/{{book.id}}/edit">Editar libro</button>
-                    <button href="/">Volver</button>
+                    <button onclick="window.location.href='/book/{{book.id}}/delete'">Borrar libro</button>
+                    <button onclick="window.location.href='/book/{{book.id}}/edit'">Editar libro</button>
+                    <button onclick="window.location.href='/'">Volver</button>
     
 
 

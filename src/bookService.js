@@ -55,8 +55,7 @@ class Book{
 class Author{
     id
     Name
-    Elements = new Map();
-    ElementsName = [];
+    Elements = [];
 
     constructor(id,name){
         this.Name = name;
@@ -77,6 +76,10 @@ books.get(1).addAuthor(new Author(1, 'Ernest Cline'));
 books.get(2).addAuthor(new Author(1, 'Philip K. Dick'));
 books.get(3).addAuthor(new Author(1, 'George Orwell'));
 books.get(4).addAuthor(new Author(1, 'H.P.Lovecraft'));
+let key = "hola"
+let value = "Antonio"
+books.get(1).Authors.get(books.get(1).AuthorId-1).ElementsName.push({key, value})
+
 
 
 export function getBooks(){
@@ -90,5 +93,20 @@ export function getBook(id){
 
 export function addBook(title, genre, year, copies, description){
     id++
-    
+    let book = new Book(id,title,genre,year,copies,description)
+    books.set(id,book)
 }
+
+export function deleteBook(id){
+    let result = window.confirm('¿Está seguro de querer borrar este libro?');
+    if (result) {
+        return books.delete(id);
+    }
+    return false;
+}
+
+export function getAuthorBook(id){
+    return [...books.get(parseInt(id)).Authors.values()]
+}
+
+
