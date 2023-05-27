@@ -16,6 +16,7 @@ class Book{
     }
 
     addAuthor(author){
+        author.setId(this.authorId)
         this.authors.set(this.authorId,author)
         this.authorId++
     }
@@ -30,13 +31,16 @@ class Author{
     name
     elements = [];
 
-    constructor(id,name){
+    constructor(name){
         this.name = name;
-        this.id = id;
     }
 
     addElement(key, value){
         this.elements.push({key, value})
+    }
+
+    setId(id){
+        this.id = id;
     }
 }
 
@@ -49,12 +53,12 @@ books.set(4,new Book(4,'El necronomicón','Terror',2008,3,'El Necronomicón es d
 
 
 
-books.get(1).addAuthor(new Author(1, 'Ernest Cline'));
-books.get(2).addAuthor(new Author(1, 'Philip K. Dick'));
-books.get(3).addAuthor(new Author(1, 'George Orwell'));
-books.get(4).addAuthor(new Author(1, 'H.P.Lovecraft'));
+books.get(1).addAuthor(new Author('Ernest Cline'));
+books.get(2).addAuthor(new Author('Philip K. Dick'));
+books.get(3).addAuthor(new Author('George Orwell'));
+books.get(4).addAuthor(new Author('H.P.Lovecraft'));
 books.get(1).authors.get(books.get(1).authorId-1).addElement("Edad",8)
-
+books.get(1).addElement(1,1)
 
 
 export function getBooks(){
@@ -82,12 +86,16 @@ export function getAuthorBook(id){
     return [...books.get(parseInt(id)).authors.values()];
 }
 
-export function editBook(id, book){
+export function editBook(id, book, elements){
     books.get(parseInt(id)).title = book.title;
     books.get(parseInt(id)).genre = book.genre;
     books.get(parseInt(id)).year = book.year;
     books.get(parseInt(id)).copies = book.copies;
     books.get(parseInt(id)).description = book.description;
+    for (let i=0;i<elements.length;i++){
+        let key = books.get(parseInt(id)).elements[0]['key']
+        books.get(parseInt(id)).elements[i] = {key: key, value: elements[i]};
+    }
 }
 
 export function getAuthor(idBook, idAuthor){
@@ -96,8 +104,13 @@ export function getAuthor(idBook, idAuthor){
 
 export function editAuthor(idBook, idAuthor, name, elements){
     books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).name = name
-    for (let i=0;i<elements.length;i++){
-        let key = books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[0]['key']
-        books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[i] = {key: key, value: elements[i]};
-    }
+    if (elements != undefined)
+        for (let i=0;i<elements.length;i++){
+            let key = books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[0]['key']
+            books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[i] = {key: key, value: elements[i]};
+        }
+}
+
+export function addAuthor(idBook, name){
+    books.get(parseInt(idBook)).addAuthor(new Author(name))
 }

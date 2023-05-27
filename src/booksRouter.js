@@ -1,5 +1,5 @@
 import express from 'express';
-import * as bookService from './bookService.js';
+import * as bookService from './BookService.js';
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -34,8 +34,8 @@ router.get('/book/:id/edit', (req, res) => {
 });
 
 router.post('/book/:id/save', (req, res) => {
-    let { title, genre, year, copies, description } = req.body;
-    bookService.editBook(req.params.id, { title, genre, year, copies, description });
+    let { title, genre, year, copies, elements, description } = req.body;
+    bookService.editBook(req.params.id, { title, genre, year, copies, description }, elements);
     res.render('edited_book');
 });
 
@@ -51,5 +51,15 @@ router.post('/book/:id/author/:id2/save', (req, res) => {
     res.render('edited_author');
 });
 
+router.get('/book/:id/author', (req, res) => {
+    let book = bookService.getBook(req.params.id)
+    res.render('new_author', { book });
+});
+
+router.post('/book/:id/author/new', (req, res) => {
+    let { name } = req.body;
+    bookService.addAuthor(req.params.id, name);
+    res.render('saved_author');
+});
     
 export default router;

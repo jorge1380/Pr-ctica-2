@@ -64,9 +64,10 @@
                     <input type='text' name='year' value="{{book.year}}" />
                     <p>Ejemplares:</p>
                     <input type='text' name='copies' value="{{book.copies}}" />
-                    {{#elements}}
-                    <p>{{key}}: <input value={{value}} /></p>
-                    {{/elements}}
+                    {{#book.elements}}
+                    <p>{{key}}:</p>
+                    <input type='text' name="elements[]" value="{{value}}" />
+                    {{/book.elements}}
                     <p>Descripción:</p>
                     <textarea name='description' rows=5 cols=40>{{book.description}}</textarea>
                     <br>
@@ -78,7 +79,7 @@
                 <p>{{name}} <button onclick="window.location.href='/book/{{book.id}}/author/{{id}}/edit'">Editar</button></p>
                 {{/author}}
                 <button onclick="window.location.href='/'">Cancelar</button>
-                <button onclick="window.location.href='new_author.html'">Añadir Autor</button>
+                <button onclick="window.location.href='/book/{{book.id}}/author'">Añadir Autor</button>
 
                 
 
