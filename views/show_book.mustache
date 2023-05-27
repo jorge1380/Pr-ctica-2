@@ -68,13 +68,16 @@
                     <p>Año: {{book.year}}</p>
                     <p>Ejemplares: {{book.copies}}</p>
                     <p>Descripción: {{book.description}}</p>
+                    {{#Elements}}
+                    <p>{{key}}: {{value}}</p>
+                    {{/Elements}}
                     
                     <h6>Autor/es</h6>
                     {{#author}}
                     <p>Nombre: {{Name}}</p>
-                    {{#ElementsName}}
+                    {{#Elements}}
                     <p>{{key}}: {{value}}</p>
-                    {{/ElementsName}}
+                    {{/Elements}}
                     {{/author}}
 
                     <br>

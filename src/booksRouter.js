@@ -18,7 +18,6 @@ router.get('/book/:id', (req, res) => {
     let book = bookService.getBook(req.params.id);
     let author = bookService.getAuthorBook(req.params.id)
     res.render('show_book', { book, author });
-    
 });
     
 router.get('/book/:id/delete', (req, res) => {
@@ -26,6 +25,12 @@ router.get('/book/:id/delete', (req, res) => {
     if (result){
         res.render('deleted_book');
     }
+});
+
+router.get('/book/:id/edit', (req, res) => {
+    let book = bookService.getBook(req.params.id);
+    let author = bookService.getAuthorBook(req.params.id)
+    res.render('edit_book', { book, author});
 });
     
 export default router;

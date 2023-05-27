@@ -9,10 +9,10 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="../css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
-        <link rel="stylesheet" href="css/FuentesHead.css">
-        <link rel="stylesheet" href="css/FuentesBody.css">
+        <link rel="stylesheet" href="../css/FuentesHead.css">
+        <link rel="stylesheet" href="../css/FuentesBody.css">
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -56,13 +56,19 @@
                 
 
                 <form action="book/{{book.id}}/edit" method="book_edit"></form>
-                    <div id="InputsAñadir" style="display: none">
-                        <p id="PTitulo">Título: <input id='titulo' type='text' name="title"></p>
-                        <p id="PAutor">Género: <input id='genero' type='text' name="author"></p>
-                        <p id="PAño">Año: <input id='año' type='text' name="year"></p>
-                        <p id="PEjemplares">Ejemplares: <input id='ejemplares' type='text' name="copies"></p>   
-                        <p id="PDescripcion">Descripción: <input id='descripcion' type='text' name="description"></p>
-                    </div>
+                   <p>Título: </p>
+                    <input type='text' name='title' value={{book.title}} />
+                    <p>Género:</p>
+                    <input type='text' name='genre' value={{book.genre}} />
+                    <p>Año de publicación:</p>
+                    <input type='text' name='year' value={{book.year}} />
+                    <p>Ejemplares:</p>
+                    <input type='text' name='copies' value={{book.copies}} />
+                    <p>Descripción:</p>
+                    <textarea name='description' rows=5 cols=40 value={{book.description}}></textarea>
+                    <br>
+                    <button onclick="window.location.href='new_author.html'">Añadir Autor</button>
+                    <input type="submit" value="Añadir"/>
                 </form>
 
                 
