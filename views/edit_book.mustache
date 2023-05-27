@@ -9,10 +9,10 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet">
+        <link href="/../css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
-        <link rel="stylesheet" href="../css/FuentesHead.css">
-        <link rel="stylesheet" href="../css/FuentesBody.css">
+        <link rel="stylesheet" href="/../css/FuentesHead.css">
+        <link rel="stylesheet" href="/../css/FuentesBody.css">
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -29,7 +29,7 @@
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
+                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="/../assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">Biblioteca</h1>
                 <!-- Icon Divider-->
@@ -55,21 +55,30 @@
 
                 
 
-                <form action="book/{{book.id}}/edit" method="book_edit"></form>
+                <form action="/book/{{book.id}}/save" method="post">
                    <p>Título: </p>
-                    <input type='text' name='title' value={{book.title}} />
+                    <input type='text' name='title' value="{{book.title}}" />
                     <p>Género:</p>
-                    <input type='text' name='genre' value={{book.genre}} />
+                    <input type='text' name='genre' value="{{book.genre}}" />
                     <p>Año de publicación:</p>
-                    <input type='text' name='year' value={{book.year}} />
+                    <input type='text' name='year' value="{{book.year}}" />
                     <p>Ejemplares:</p>
-                    <input type='text' name='copies' value={{book.copies}} />
+                    <input type='text' name='copies' value="{{book.copies}}" />
+                    {{#elements}}
+                    <p>{{key}}: <input value={{value}} /></p>
+                    {{/elements}}
                     <p>Descripción:</p>
-                    <textarea name='description' rows=5 cols=40 value={{book.description}}></textarea>
+                    <textarea name='description' rows=5 cols=40>{{book.description}}</textarea>
                     <br>
-                    <button onclick="window.location.href='new_author.html'">Añadir Autor</button>
-                    <input type="submit" value="Añadir"/>
+                    <input type="submit" value="Guardar"/>
                 </form>
+                <br>
+                <p>Autor/es:</p>
+                {{#author}}
+                <p>{{name}} <button onclick="window.location.href='/book/{{book.id}}/author/{{id}}/edit'">Editar</button></p>
+                {{/author}}
+                <button onclick="window.location.href='/'">Cancelar</button>
+                <button onclick="window.location.href='new_author.html'">Añadir Autor</button>
 
                 
 
@@ -86,9 +95,8 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="/../js/scripts.js"></script>
 
-        <script src='/src/app.js'></script>
 
     </body>
 </html>
