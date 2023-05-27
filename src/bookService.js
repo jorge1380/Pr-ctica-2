@@ -1,4 +1,4 @@
-var id = 4
+var id = 0
 
 class Book{
     id
@@ -46,23 +46,43 @@ class Author{
 
 let books = new Map();
 
-books.set(1, new Book(1,'Ready Player One','Ciencia ficción',2011,2,'En el año 2044​ el mundo es un desastre.  Sin embargo, un videojuego de realidad virtual llamado OASIS proporciona la vía de escape que las personas necesitan.'))
-books.set(2,new Book(2,'¿Sueñan los androides con ovejas eléctricas?','Ficción distópica',1968,1,'La acción se sitúa en un mundo lleno de polvo radiactivo después de una guerra nuclear que terminó matando a la mayoría de los animales, llevando a que la gente tenga animales eléctricos.'))
-books.set(3,new Book(3,'1984','Derechos humanos',1949,4,'El personaje principal de la novela es Winston Smith, que trabaja en el Ministerio de la Verdad. Su cometido es reescribir la historia'))
-books.set(4,new Book(4,'El necronomicón','Terror',2008,3,'El Necronomicón es descrito como un libro de saberes arcanos y magia ritual, cuya lectura provoca la locura y la muerte.'))
-
-
+addBook(new Book(1,'Ready Player One','Ciencia ficción',2011,2,'En el año 2044​ el mundo es un desastre.  Sin embargo, un videojuego de realidad virtual llamado OASIS proporciona la vía de escape que las personas necesitan.'))
+addBook(new Book(1,'¿Sueñan los androides con ovejas eléctricas?','Ficción distópica',1968,1,'La acción se sitúa en un mundo lleno de polvo radiactivo después de una guerra nuclear que terminó matando a la mayoría de los animales, llevando a que la gente tenga animales eléctricos.'))
+addBook(new Book(1,'1984','Derechos humanos',1949,4,'El personaje principal de la novela es Winston Smith, que trabaja en el Ministerio de la Verdad. Su cometido es reescribir la historia'))
+addBook(new Book(1,'El necronomicón','Terror',2008,3,'El Necronomicón es descrito como un libro de saberes arcanos y magia ritual, cuya lectura provoca la locura y la muerte.'))
+addBook(new Book(1,'Harry Potter','Fantasía',1997,80,'Harry Potter es una serie de novelas fantásticas escrita por la autora británica J. K. Rowling, en la que se describen las aventuras del joven aprendiz de magia y hechicería Harry Potter y sus amigos Hermione Granger y Ron Weasley, durante los años que pasan en el Colegio Hogwarts de Magia y Hechicería.'))
+addBook(new Book(1,'El Señor de los Anillos','Fantasía heroica',1954,15,'La novela narra el viaje del protagonista principal, Frodo Bolsón, hobbit de la Comarca, para destruir el Anillo Único y la consiguiente guerra que provocará el enemigo para recuperarlo, ya que es la principal fuente de poder de su creador, el Señor oscuro Sauron.'))
+addBook(new Book(1,'El alquimista','Ficción de aventuras y literatura fantástica',1988,20,'El alquimista relata las aventuras de Santiago, un joven pastor andaluz que viaja desde su tierra natal hacia el desierto egipcio en busca de un tesoro oculto en las pirámides. La imaginación y el coraje del protagonista le hacen perseguir su "Leyenda Personal". A lo largo del relato, Santiago se encuentra con diferentes personajes que lo ayudan a aprender a mantener su valor y, sobre todo, escuchar los dictados del corazón.'))
+addBook(new Book(1,'El código Da Vinci','Novela policíaca',2003,34,'El libro narra los intentos de Robert Langdon, Profesor de Iconografía Religiosa de la Universidad Harvard, para resolver el misterioso asesinato de Jacques Saunière ocurrido en el Museo del Louvre en París.'))
+addBook(new Book(1,'Piense y hágase rico','Autoayuda y superación personal',1937,47,'Para escribirlo, Napoleón Hill entrevistó a las 500 familias más ricas de los Estados Unidos, quienes le revelaron al autor el origen de su fortuna. Promocionado por Mahatma Gandhi, fue ampliamente distribuido en la India de su tiempo.'))
+addBook(new Book(1,'Diario de Ana Frank','Autobiografía',1947,2,'En los relatos, se cuenta la historia y vida de Ana Frank como adolescente y los dos años en que permaneció oculta junto a su familia de origen judío de los nazis en Ámsterdam, en plena Segunda Guerra Mundial, hasta que fueron descubiertos.'))
+addBook(new Book(1,'Don Quijote de la Mancha','	Novela de aventuras y parodia de las novelas de caballerías',1605,100,'El ingenioso hidalgo don Quijote de la Mancha narra las aventuras de Alonso Quijano, un hidalgo pobre que de tanto leer novelas de caballería acaba enloqueciendo y creyendo ser un caballero andante, nombrándose a sí mismo como don Quijote de la Mancha.'))
 
 books.get(1).addAuthor(new Author('Ernest Cline'));
 books.get(2).addAuthor(new Author('Philip K. Dick'));
 books.get(3).addAuthor(new Author('George Orwell'));
 books.get(4).addAuthor(new Author('H.P.Lovecraft'));
+books.get(5).addAuthor(new Author('J.K. Rowlings'));
+books.get(6).addAuthor(new Author('J.R.R. Tolkien'));
+books.get(7).addAuthor(new Author('Paulo Coelho'));
+books.get(8).addAuthor(new Author('Dan Brown'));
+books.get(9).addAuthor(new Author('Napoleón Hill'));
+books.get(10).addAuthor(new Author('Ana Frank'));
+books.get(11).addAuthor(new Author('Miguel de Cervantes'));
+
+
 books.get(1).authors.get(books.get(1).authorId-1).addElement("Edad",8)
 books.get(1).addElement(1,1)
 
 
-export function getBooks(){
-    return [...books.values()];
+export function getBooks(from, to){
+    let values = [...books.values()];
+    if (from !== undefined) {
+        return values.slice(from, to);
+    } else {
+        return values;
+    }
+       
 }
 
 export function getBook(id){

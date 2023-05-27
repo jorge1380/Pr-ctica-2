@@ -68,17 +68,19 @@
 
 
 
-
+                    <div id="books">
                     {{#books}}
-                        <a href="book/{{id}}">{{title}}</a>
+                        <p>{{title}}</p>
+                        <button onclick="window.location.href='book/{{id}}}'"> Más info</button>
                     <br>
                     {{/books}}
                     
                     {{^books}}
                         <p>Sin elementos</p>
                     {{/books}}
-
+                    </div>
                     <br>
+                    <button onclick='loadMore()'>Cargar más</button>
                     <button onclick="window.location.href='new_book.html'">Añadir Libro</button>
 
 
@@ -109,7 +111,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
-
+        <script src="/app.js"></script>
     </body>
 </html>
 

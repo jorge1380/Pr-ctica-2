@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res.render('index', {
-        books: bookService.getBooks()
+        books: bookService.getBooks(0,5)
     });
 });
 
@@ -89,4 +89,17 @@ router.post('/book/:id/author/:id2/element/new', (req, res) => {
     res.render('edit_author', { author, book });
 });
     
+router.get('/books', (req, res) => {
+
+    const from = parseInt(req.query.from);
+    const to = parseInt(req.query.to);
+
+    const books = bookService.getBooks(from,to);
+
+    res.render('books', {
+        books: books
+    });
+});
+
+
 export default router;
