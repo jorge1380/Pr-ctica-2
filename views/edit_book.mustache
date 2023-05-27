@@ -71,17 +71,19 @@
                     <p>Descripción:</p>
                     <textarea name='description' rows=5 cols=40>{{book.description}}</textarea>
                     <br>
-                    <input type="submit" value="Guardar"/>
+                    <input class="btn btn-success" type="submit" value="Guardar"/>
                 </form>
                 <br>
                 <p>Autor/es:</p>
                 {{#author}}
-                <p>{{name}} <button onclick="window.location.href='/book/{{book.id}}/author/{{id}}/delete'">Borrar</button><button onclick="window.location.href='/book/{{book.id}}/author/{{id}}/edit'">Editar</button></p>
+                <p>{{name}} <button class="btn btn-danger" onclick="deleteAuthorAlert({{book.id}},{{id}})">Borrar</button>
+                <button class="btn btn-success" onclick="window.location.href='/book/{{book.id}}/author/{{id}}/edit'">Editar</button></p>
                 {{/author}}
-                <button onclick="window.location.href='/book/{{book.id}}'">Cancelar</button>
-                <button onclick="window.location.href='/book/{{book.id}}/author'">Añadir Autor</button>
-                <button onclick="window.location.href='/book/{{book.id}}/element'">Añadir Atributo</button>
-
+                <div class='btn-group'>
+                <button class="btn btn-danger" onclick="window.location.href='/book/{{book.id}}'">Cancelar</button>
+                <button class="btn btn-warning" onclick="window.location.href='/book/{{book.id}}/author'">Añadir Autor</button>
+                <button class="btn btn-warning" onclick="window.location.href='/book/{{book.id}}/element'">Añadir Atributo</button>
+                </div>
                 
 
             </div>    
@@ -98,7 +100,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="/../js/scripts.js"></script>
-
+        <script src="/app.js"></script>
 
     </body>
 </html>

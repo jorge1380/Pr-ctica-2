@@ -97,9 +97,7 @@ export function addBook(book){
 }
 
 export function deleteBook(id){
-    if (window.confirm("Are you sure to delete this service?")) {
-    }
-    return false;
+    books.delete(parseInt(id));
 }
 
 export function getAuthorBook(id){
@@ -141,4 +139,8 @@ export function addElementBook(idBook, elementName){
 
 export function addElementAuthor(idBook, idAuthor, elementName){
     books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).addElement(elementName,"")
+}
+
+export function deleteAuthor(idBook, idAuthor){
+    books.get(parseInt(idBook)).authors.delete(parseInt(idAuthor));
 }

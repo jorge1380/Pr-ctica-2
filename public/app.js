@@ -17,3 +17,15 @@ async function loadMore(){
 
     loadMoreRequests++;
 }
+
+function deleteBookAlert(id){
+    if (window.confirm("¿Está seguro de que quiere borrar este libro?")){
+        window.location.href=`/book/${id}/delete`;
+    }
+}
+
+function deleteAuthorAlert(idBook,idAuthor){
+    if (window.confirm("¿Está seguro de que quiere borrar este autor del libro?")){
+        window.location.href=`/book/${idBook}/author/${idAuthor}/delete`;
+    }
+}

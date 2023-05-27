@@ -21,10 +21,8 @@ router.get('/book/:id', (req, res) => {
 });
     
 router.get('/book/:id/delete', (req, res) => {
-    let result = bookService.deleteBook(req.params.id);
-    if (result){
-        res.render('deleted_book');
-    }
+    bookService.deleteBook(req.params.id);
+    res.redirect("/")
 });
 
 router.get('/book/:id/edit', (req, res) => {
@@ -101,5 +99,9 @@ router.get('/books', (req, res) => {
     });
 });
 
+router.get('/book/:id/author/:id2/delete', (req, res) => {
+    bookService.deleteAuthor(req.params.id,req.params.id2);
+    res.redirect("/")
+});
 
 export default router;

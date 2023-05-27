@@ -44,7 +44,7 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Libros</h2>
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Ficha técnica</h2>
                 </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -81,11 +81,11 @@
                     {{/author}}
 
                     <br>
-
-                    <button onclick="window.location.href='/book/{{book.id}}/delete'">Borrar libro</button>
-                    <button onclick="window.location.href='/book/{{book.id}}/edit'">Editar libro</button>
-                    <button onclick="window.location.href='/'">Volver</button>
-    
+                    <div class='btn-group'>
+                    <button class="btn btn-danger" onclick="deleteBookAlert({{book.id}})">Borrar libro</button>
+                    <button class="btn btn-success" onclick="window.location.href='/book/{{book.id}}/edit'">Editar libro</button>
+                    <button class="btn btn-warning" onclick="window.location.href='/'">Volver</button>
+                    </div>
 
 
 
@@ -106,7 +106,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="/js/scripts.js"></script>
-
+        <script src="/app.js"></script>
     </body>
 </html>
 
