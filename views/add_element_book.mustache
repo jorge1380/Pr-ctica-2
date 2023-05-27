@@ -27,9 +27,7 @@
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">Biblioteca</h1>
                 <!-- Icon Divider-->
@@ -44,7 +42,7 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Libros</h2>
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Ficha técnica</h2>
                 </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -53,10 +51,11 @@
                     <div class="divider-custom-line"></div>
                 </div>
 
+
                 
 
                 <form action="/book/{{book.id}}/element/new" method="post">
-                    <p>Nombre del elemento: </p>
+                    <p>Nombre del atributo: </p>
                     <input type='text' name='name'/>
                     <br>
                     <input type="submit" value="Añadir"/>
