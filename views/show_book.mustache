@@ -72,12 +72,16 @@
                     <p>{{key}}: {{value}}</p>
                     {{/book.elements}}
                     
+                    
                     <h6>Autor/es</h6>
                     {{#author}}
                     <p>Nombre: {{name}}</p>
                     {{#elements}}
                     <p>{{key}}: {{value}}</p>
                     {{/elements}}
+                    {{/author}}
+                    {{^author}}
+                    <p>Sin autores</p>
                     {{/author}}
 
                     <br>
