@@ -70,7 +70,23 @@ router.get('/book/:id/element', (req, res) => {
 router.post('/book/:id/element/new', (req, res) => {
     let { name } = req.body;
     bookService.addElementBook(req.params.id, name);
-    res.render('saved_element');
+    let book = bookService.getBook(req.params.id);
+    let author = bookService.getAuthorBook(req.params.id)
+    res.render('edit_book', { book, author});
+});
+
+router.get('/book/:id/author/:id2/element', (req, res) => {
+    let book = bookService.getBook(req.params.id)
+    let author = bookService.getAuthor(req.params.id, req.params.id2)
+    res.render('add_element_author', { book, author });
+});
+
+router.post('/book/:id/author/:id2/element/new', (req, res) => {
+    let { name } = req.body;
+    bookService.addElementAuthor(req.params.id, req.params.id2, name);
+    let author = bookService.getAuthor(req.params.id,req.params.id2);
+    let book = bookService.getBook(req.params.id)
+    res.render('edit_author', { author, book });
 });
     
 export default router;

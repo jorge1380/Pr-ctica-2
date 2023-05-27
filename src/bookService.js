@@ -118,3 +118,7 @@ export function addAuthor(idBook, name){
 export function addElementBook(idBook, elementName){
     books.get(parseInt(idBook)).addElement(elementName,"")
 }
+
+export function addElementAuthor(idBook, idAuthor, elementName){
+    books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).addElement(elementName,"")
+}
