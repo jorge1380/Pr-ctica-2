@@ -61,5 +61,16 @@ router.post('/book/:id/author/new', (req, res) => {
     bookService.addAuthor(req.params.id, name);
     res.render('saved_author');
 });
+
+router.get('/book/:id/element', (req, res) => {
+    let book = bookService.getBook(req.params.id)
+    res.render('add_element_book', { book });
+});
+
+router.post('/book/:id/element/new', (req, res) => {
+    let { name } = req.body;
+    bookService.addElementBook(req.params.id, name);
+    res.render('saved_element');
+});
     
 export default router;

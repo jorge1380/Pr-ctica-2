@@ -93,7 +93,7 @@ export function editBook(id, book, elements){
     books.get(parseInt(id)).copies = book.copies;
     books.get(parseInt(id)).description = book.description;
     for (let i=0;i<elements.length;i++){
-        let key = books.get(parseInt(id)).elements[0]['key']
+        let key = books.get(parseInt(id)).elements[i]['key']
         books.get(parseInt(id)).elements[i] = {key: key, value: elements[i]};
     }
 }
@@ -106,11 +106,15 @@ export function editAuthor(idBook, idAuthor, name, elements){
     books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).name = name
     if (elements != undefined)
         for (let i=0;i<elements.length;i++){
-            let key = books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[0]['key']
+            let key = books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[i]['key']
             books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[i] = {key: key, value: elements[i]};
         }
 }
 
 export function addAuthor(idBook, name){
     books.get(parseInt(idBook)).addAuthor(new Author(name))
+}
+
+export function addElementBook(idBook, elementName){
+    books.get(parseInt(idBook)).addElement(elementName,"")
 }

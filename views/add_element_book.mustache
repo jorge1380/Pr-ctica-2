@@ -29,7 +29,7 @@
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="/../assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
+                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">Biblioteca</h1>
                 <!-- Icon Divider-->
@@ -55,32 +55,12 @@
 
                 
 
-                <form action="/book/{{book.id}}/save" method="post">
-                   <p>Título: </p>
-                    <input type='text' name='title' value="{{book.title}}" />
-                    <p>Género:</p>
-                    <input type='text' name='genre' value="{{book.genre}}" />
-                    <p>Año de publicación:</p>
-                    <input type='text' name='year' value="{{book.year}}" />
-                    <p>Ejemplares:</p>
-                    <input type='text' name='copies' value="{{book.copies}}" />
-                    {{#book.elements}}
-                    <p>{{key}}:</p>
-                    <input type='text' name="elements[]" value="{{value}}" />
-                    {{/book.elements}}
-                    <p>Descripción:</p>
-                    <textarea name='description' rows=5 cols=40>{{book.description}}</textarea>
+                <form action="/book/{{book.id}}/element/new" method="post">
+                    <p>Nombre del elemento: </p>
+                    <input type='text' name='name'/>
                     <br>
-                    <input type="submit" value="Guardar"/>
+                    <input type="submit" value="Añadir"/>
                 </form>
-                <br>
-                <p>Autor/es:</p>
-                {{#author}}
-                <p>{{name}} <button onclick="window.location.href='/book/{{book.id}}/author/{{id}}/edit'">Editar</button></p>
-                {{/author}}
-                <button onclick="window.location.href='/'">Cancelar</button>
-                <button onclick="window.location.href='/book/{{book.id}}/author'">Añadir Autor</button>
-                <button onclick="window.location.href='/book/{{book.id}}/element'">Añadir Atributo</button>
 
                 
 
