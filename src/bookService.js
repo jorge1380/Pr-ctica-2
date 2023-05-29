@@ -110,9 +110,11 @@ export function editBook(id, book, elements){
     books.get(parseInt(id)).year = book.year;
     books.get(parseInt(id)).copies = book.copies;
     books.get(parseInt(id)).description = book.description;
-    for (let i=0;i<elements.length;i++){
-        let key = books.get(parseInt(id)).elements[i]['key']
-        books.get(parseInt(id)).elements[i] = {key: key, value: elements[i]};
+    if (elements != null){
+        for (let i=0;i<elements.length;i++){
+            let key = books.get(parseInt(id)).elements[i]['key']
+            books.get(parseInt(id)).elements[i] = {key: key, value: elements[i]};
+        }
     }
 }
 
@@ -144,3 +146,7 @@ export function addElementAuthor(idBook, idAuthor, elementName){
 export function deleteAuthor(idBook, idAuthor){
     books.get(parseInt(idBook)).authors.delete(parseInt(idAuthor));
 }
+
+
+
+  

@@ -34,7 +34,8 @@ router.get('/book/:id/edit', (req, res) => {
 router.post('/book/:id/save', (req, res) => {
     let { title, genre, year, copies, elements, description } = req.body;
     bookService.editBook(req.params.id, { title, genre, year, copies, description }, elements);
-    res.render('edited_book');
+    let book = bookService.getBook(req.params.id);
+    res.render('edited_book', { book });
 });
 
 router.get('/book/:id/author/:id2/edit', (req, res) => {
