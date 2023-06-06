@@ -105,4 +105,11 @@ router.get('/book/:id/author/:id2/delete', (req, res) => {
     res.redirect("/")
 });
 
+router.get('/book/:id/:key/delete', (req, res) => {
+    bookService.deleteAtribute(req.params.id,req.params.key.toString());
+    let book = bookService.getBook(req.params.id);
+    let author = bookService.getAuthorBook(req.params.id)
+    res.render('show_book', { book, author })
+});
+
 export default router;

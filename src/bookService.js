@@ -147,6 +147,11 @@ export function deleteAuthor(idBook, idAuthor){
     books.get(parseInt(idBook)).authors.delete(parseInt(idAuthor));
 }
 
-
+export function deleteAtribute(idBook, atributeKey){
+    for (let i=0;i<books.get(parseInt(idBook)).elements.length;i++){
+        if (books.get(parseInt(idBook)).elements[i]['key'] ==  atributeKey)
+            books.get(parseInt(idBook)).elements.splice(i,1)
+    }
+}
 
   

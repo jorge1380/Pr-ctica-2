@@ -68,7 +68,7 @@
                     <input type='text' name='copies' value="{{book.copies}}" />
                     {{#book.elements}}
                     <p>{{key}}:</p>
-                    <input type='text' name="elements[]" value="{{value}}" />
+                    <input type='text' name="elements[]" value="{{value}}" /><button type="button" class="btn btn-danger" onclick="window.location.href='/book/{{book.id}}/{{key}}/delete'">Borrar</button>
                     {{/book.elements}}
                     <p>Descripción:</p>
                     <textarea name='description' rows=5 cols=40>{{book.description}}</textarea>
