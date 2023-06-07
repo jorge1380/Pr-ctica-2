@@ -42,7 +42,7 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Añadir libro</h2>
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Ficha técnica</h2>
                 </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -50,28 +50,22 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                
-                    <div id="bookForm">
-                    <form action="/book/new" method="post">
-                        <div id="inputContainer">
-                            <p>Título: </p>
-                            <input type='text' name='title'/>
-                            <p>Género:</p>
-                            <input type='text' name='genre'/>
-                            <p>Año de publicación:</p>
-                            <input type='text' name='year'/>
-                            <p>Ejemplares:</p>
-                            <input type='text' name='copies'/>
-                            <p>Descripción:</p>
-                            <textarea name='description' rows=5 cols=40></textarea>
-                        </div>
-                        <br>
-                        <input class="btn btn-success" type="submit" value="Añadir"/>
-                    </form>
-                    </div>
-                
 
                 
+
+
+
+                
+
+                <form action="/book" method="post">
+                    <p>Nombre del atributo: </p>
+                    <input type='text' name='names[]'/>
+                    <br>
+                    <input class="btn btn-warning" type="submit" value="Añadir"/>
+                </form>
+
+                
+
             </div>    
         </section>
                 
@@ -85,8 +79,8 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-        <script src="/app.js"></script>
+        <script src="/../js/scripts.js"></script>
+
 
     </body>
 </html>

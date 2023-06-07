@@ -112,4 +112,18 @@ router.get('/book/:id/:key/delete', (req, res) => {
     res.render('show_book', { book, author })
 });
 
+router.get('/book', (req, res) => {
+    res.render('new_book')
+});
+
+router.post('/book', (req, res) => {
+    let names = req.body.names;
+    console.log(names)
+    res.render('new_book', { names })
+});
+
+router.get('/book/element/new', (req, res) => {
+    res.render('add_element_new_book')
+});
+
 export default router;

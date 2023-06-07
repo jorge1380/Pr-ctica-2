@@ -9,10 +9,10 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet">
+        <link href="/../css/styles.css" rel="stylesheet">
         <!-- Fonts CSS-->
-        <link rel="stylesheet" href="/css/FuentesHead.css">
-        <link rel="stylesheet" href="/css/FuentesBody.css">
+        <link rel="stylesheet" href="/../css/FuentesHead.css">
+        <link rel="stylesheet" href="/../css/FuentesBody.css">
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top" id="mainNav">
@@ -27,9 +27,7 @@
                 </div>
             </div>
         </nav>
-        <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="assets/img/83fe2ddc543039fe3b4144dc9bb4f906.png" alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">Biblioteca</h1>
                 <!-- Icon Divider-->
@@ -44,7 +42,7 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Libros</h2>
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">Añadir libro</h2>
                 </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -52,51 +50,33 @@
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
+                
+                    <div id="bookForm">
+                    <form action="/book/new" method="post">
+                        <div id="inputContainer">
+                            <p>Título: </p>
+                            <input type='text' name='title'/>
+                            <p>Género:</p>
+                            <input type='text' name='genre'/>
+                            <p>Año de publicación:</p>
+                            <input type='text' name='year'/>
+                            <p>Ejemplares:</p>
+                            <input type='text' name='copies'/>
+                            <p>Descripción:</p>
+                            <textarea name='description' rows=5 cols=40></textarea>
+                            {{#names}}
+                            <p>{{.}}: </p>
+                            <input type='text' name='values[]'/>
+                            {{/names}}
+                        </div>
+                        <br>
+                        <input class="btn btn-success" type="submit" value="Añadir"/>
+                    </form>
+                    <button type='button' class="btn btn-warning" onclick="window.location.href='/book/element/new'">Añadir atributo</button>
+                    </div>
+                
 
                 
-                <div id='content'></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div id="books">
-                    {{#books}}
-                        <h6>{{title}}</h6>
-                        <button class="btn btn-info" onclick="window.location.href='book/{{id}}}'"> Más info</button>
-                    <br>
-                    {{/books}}
-                    
-                    {{^books}}
-                        <p>Sin elementos</p>
-                    {{/books}}
-                    </div>
-                    <br>
-                    <button class="btn btn-success" onclick='loadMore()'>Cargar más</button>
-                    <button class="btn btn-warning" onclick="window.location.href='/book'">Añadir Libro</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                </div>
-
             </div>    
         </section>
                 
@@ -110,8 +90,9 @@
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
-        <script src="/js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
         <script src="/app.js"></script>
+
     </body>
 </html>
 
