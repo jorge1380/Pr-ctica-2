@@ -29,34 +29,3 @@ function deleteAuthorAlert(idBook,idAuthor){
         window.location.href=`/book/${idBook}/author/${idAuthor}/delete`;
     }
 }
-
-/*function addInput() {
-    let inputContainer = document.getElementById("inputContainer");
-    let p = document.createElement("p");
-    inputContainer.appendChild(p);
-    
-    
-    let newInput = document.createElement("input");
-    newInput.type = "text";
-    newInput.name = "elements[]";
-
-    
-    let elementsName = document.getElementsByName("elementsName[]");
-    p.textContent = elementsName[elementsName.length-1] + ": ";
-
-    p.appendChild(newInput);
-
-    let bookForm = document.getElementById("bookForm")
-    bookForm.style.display = ""
-    let form = document.getElementById("ElementsNameForm")
-    form.style.display = "none"
-
-  }
-
-  function showElementForm(){
-    console.log(1)
-    let form = document.getElementById("ElementsNameForm")
-    let bookForm = document.getElementById("bookForm")
-    bookForm.style.display = "none"
-    form.style.display = ""
-  }*/

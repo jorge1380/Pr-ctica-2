@@ -154,4 +154,11 @@ export function deleteAtribute(idBook, atributeKey){
     }
 }
 
-  
+export function addElementsNewBook(elementsName, elementsValue){
+    if (elementsName.length != 0){
+        for (let i=0;i<elementsName.length;i++){
+            books.get(id).addElement(elementsName[i],elementsValue[i])
+        }
+    }
+}  
+

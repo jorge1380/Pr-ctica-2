@@ -9,8 +9,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/book/new', (req, res) => {
-    let { title, genre, year, copies, description } = req.body;
+    let { title, genre, year, copies, description, values } = req.body;
     bookService.addBook({ title, genre, year, copies, description });
+    bookService.addElementsNewBook(additionalEements, values)
     res.render('saved_book');
 });
 
@@ -112,14 +113,17 @@ router.get('/book/:id/:key/delete', (req, res) => {
     res.render('show_book', { book, author })
 });
 
+let additionalEements = []
+
 router.get('/book', (req, res) => {
+    additionalEements = []
     res.render('new_book')
 });
 
 router.post('/book', (req, res) => {
     let names = req.body.names;
-    console.log(names)
-    res.render('new_book', { names })
+    additionalEements.push(names)
+    res.render('new_book', { additionalEements })
 });
 
 router.get('/book/element/new', (req, res) => {
