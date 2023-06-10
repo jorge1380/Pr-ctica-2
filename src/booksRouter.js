@@ -9,9 +9,10 @@ router.get('/', (req, res) => {
 });
 
 router.post('/book/new', (req, res) => {
-    let { title, genre, year, copies, description, values } = req.body;
+    let { title, genre, year, copies, description, values, authorN } = req.body;
     bookService.addBook({ title, genre, year, copies, description });
     bookService.addElementsNewBook(additionalEements, values)
+    bookService.addAuthorsNewBook(authorN)
     res.render('saved_book');
 });
 
@@ -51,14 +52,25 @@ router.post('/book/:id/author/:id2/save', (req, res) => {
     res.render('edited_author');
 });
 
+let authorElements = []
+
 router.get('/book/:id/author', (req, res) => {
     let book = bookService.getBook(req.params.id)
-    res.render('new_author', { book });
+    authorElements = []
+    res.render('new_author', { book, authorElements });
+});
+
+router.post('/book/:id/author', (req, res) => {
+    let book = bookService.getBook(req.params.id);
+    let elementName = req.body.elementName;
+    authorElements.push(elementName)
+    res.render('new_author', { book, authorElements});
 });
 
 router.post('/book/:id/author/new', (req, res) => {
-    let { name } = req.body;
+    let { name,values } = req.body;
     bookService.addAuthor(req.params.id, name);
+    bookService.addElementNewAuthor(req.params.id,authorElements,values);
     res.render('saved_author');
 });
 
@@ -114,20 +126,36 @@ router.get('/book/:id/:key/delete', (req, res) => {
 });
 
 let additionalEements = []
+let authorNames = []
 
 router.get('/book', (req, res) => {
     additionalEements = []
+    authorNames = []
     res.render('new_book')
 });
 
 router.post('/book', (req, res) => {
     let names = req.body.names;
-    additionalEements.push(names)
-    res.render('new_book', { additionalEements })
+    let authorName = req.body.nameAuthor;
+    if ((authorName) != undefined)
+        authorNames.push(authorName)
+    if ((names) != undefined)
+        additionalEements.push(names)
+    res.render('new_book', { additionalEements, authorNames })
 });
 
 router.get('/book/element/new', (req, res) => {
     res.render('add_element_new_book')
 });
+
+router.get('/book/author/new', (req, res) => {
+    res.render('add_author_new_book')
+});
+
+router.get('/book/:id/author/element/new', (req, res) => {
+    let book = bookService.getBook(req.params.id)
+    res.render('add_element_new_author', { book })
+});
+
 
 export default router;

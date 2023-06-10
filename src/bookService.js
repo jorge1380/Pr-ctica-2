@@ -162,3 +162,19 @@ export function addElementsNewBook(elementsName, elementsValue){
     }
 }  
 
+export function addAuthorsNewBook(authorsNames){
+    if (authorsNames.length != 0){
+        for (let i=0;i<authorsNames.length;i++){
+            books.get(id).addAuthor(new Author(authorsNames[i]))
+        }
+    }
+}  
+
+export function addElementNewAuthor(idBook, elementsNames, elementsValues){
+    if (elementsNames.length != 0){
+        for (let i=0;i<elementsNames.length;i++){
+            books.get(parseInt(idBook)).authors.get(books.get(parseInt(idBook)).authorId-1).addElement(elementsNames[i],elementsValues[i])
+        }
+    }
+}  
+

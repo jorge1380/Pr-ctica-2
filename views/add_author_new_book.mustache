@@ -56,17 +56,11 @@
 
                 
 
-                <form action="/book/{{book.id}}/author/new" method="post">
+                <form action="/book" method="post">
                     <p>Nombre: </p>
-                    <input type='text' name='name'/>
+                    <input type='text' name='nameAuthor'/>
                     <br>
-                    {{#authorElements}}
-                    <p>{{.}}: </p>
-                    <input type='text' name='values[]'/>
-                    <br>
-                    {{/authorElements}}
-                    <input class="btn btn-success" type="submit" value="Añadir"/>
-                    <button type="button" class="btn btn-warning" onclick="window.location.href='/book/{{book.id}}/author/element/new'">Añadir atributo</button>
+                    <input class="btn btn-warning" type="submit" value="Añadir"/>
                 </form>
 
                 
