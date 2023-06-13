@@ -157,5 +157,12 @@ router.get('/book/:id/author/element/new', (req, res) => {
     res.render('add_element_new_author', { book })
 });
 
+router.get('/book/:id/author/:id2/:key/delete', (req, res) => {
+    bookService.deleteAtributeFromAuthor(req.params.id,req.params.id2,req.params.key.toString());
+    let book = bookService.getBook(req.params.id);
+    let author = bookService.getAuthorBook(req.params.id)
+    res.render('show_book', { book, author })
+});
+
 
 export default router;

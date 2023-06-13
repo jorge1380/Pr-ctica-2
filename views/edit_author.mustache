@@ -62,7 +62,7 @@
                     <input type='text' name='name' value="{{author.name}}" />
                     {{#author.elements}}
                     <p>{{key}}:</p>
-                    <input type='text' name="elements[]" value="{{value}}" />
+                    <input type='text' name="elements[]" value="{{value}}" /><button type="button" class="btn btn-danger" onclick="deleteAuthorElement({{book.id}},{{author.id}},'{{key}}')">Borrar</button>
                     {{/author.elements}}
                     <br>
                     <p></p>
@@ -87,6 +87,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <!-- Core theme JS-->
         <script src="/../js/scripts.js"></script>
+        <script src="/../app.js"></script>
 
 
     </body>

@@ -176,5 +176,13 @@ export function addElementNewAuthor(idBook, elementsNames, elementsValues){
             books.get(parseInt(idBook)).authors.get(books.get(parseInt(idBook)).authorId-1).addElement(elementsNames[i],elementsValues[i])
         }
     }
-}  
+}
+
+export function deleteAtributeFromAuthor(idBook,idAuthor,atributeKey){
+    console.log(atributeKey)
+    for (let i=0;i<books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements.length;i++){
+        if (books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements[i]['key'] ==  atributeKey)
+            books.get(parseInt(idBook)).authors.get(parseInt(idAuthor)).elements.splice(i,1)
+    }
+}
 

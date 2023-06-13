@@ -29,3 +29,15 @@ function deleteAuthorAlert(idBook,idAuthor){
         window.location.href=`/book/${idBook}/author/${idAuthor}/delete`;
     }
 }
+
+function deleteAuthorElement(idBook,idAuthor,key){
+    if (window.confirm("¿Está seguro de que quiere borrar este atributo del autor?")){
+        window.location.href=`/book/${idBook}/author/${idAuthor}/${key}/delete`;
+    }
+}
+
+function deleteBookElement(idBook,key){
+    if (window.confirm("¿Está seguro de que quiere borrar este atributo del libro?")){
+        window.location.href=`/book/${idBook}/${key}/delete`;
+    }
+}
