@@ -163,9 +163,11 @@ export function addElementsNewBook(elementsName, elementsValue){
 }  
 
 export function addAuthorsNewBook(authorsNames){
-    if (authorsNames.length != 0){
-        for (let i=0;i<authorsNames.length;i++){
-            books.get(id).addAuthor(new Author(authorsNames[i]))
+    if (authorsNames != undefined){
+        if (authorsNames.length != 0){
+            for (let i=0;i<authorsNames.length;i++){
+                books.get(id).addAuthor(new Author(authorsNames[i]))
+            }
         }
     }
 }  
