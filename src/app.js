@@ -1,8 +1,8 @@
 import express from 'express';
 import mustacheExpress from 'mustache-express';
 import bodyParser from 'body-parser';
-import { __dirname } from './src/dirname.js';
-import bookRouter from './src/booksRouter.js';
+import { __dirname } from './dirname.js';
+import bookRouter from './booksRouter.js';
 
 const app = express();
 
