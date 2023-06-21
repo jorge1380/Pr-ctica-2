@@ -72,7 +72,7 @@ books.get(11).addAuthor(new Author('Miguel de Cervantes'));
 
 
 books.get(1).authors.get(books.get(1).authorId-1).addElement("Edad",8)
-books.get(1).addElement(1,1)
+
 
 
 export function getBooks(from, to){
